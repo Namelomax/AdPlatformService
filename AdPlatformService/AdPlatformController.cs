@@ -11,6 +11,7 @@ public class AdPlatformController : ControllerBase
     }
 
     [HttpPost("load")]
+    // Загрузка из файла
     public IActionResult LoadPlatforms([FromBody] string filePath)
     {
         try
@@ -25,6 +26,7 @@ public class AdPlatformController : ControllerBase
     }
 
     [HttpGet("search")]
+    // Поиск по полученным данным и запросу
     public IActionResult SearchPlatforms([FromQuery] string location)
     {
         var result = _service.GetPlatformsForLocation(location);

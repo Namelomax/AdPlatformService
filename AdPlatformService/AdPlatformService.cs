@@ -1,12 +1,14 @@
 using System.Collections.Concurrent;
 public class AdPlatformService
 {
+    // Данные в оперативной памяти, потокобезопасная колекция
     private readonly ConcurrentDictionary<string, HashSet<string>> _platforms = new();
 
     public void LoadFromFile(string filePath)
     {
-        var newData = new ConcurrentDictionary<string, HashSet<string>>();
         
+        var newData = new ConcurrentDictionary<string, HashSet<string>>();
+        // Чтение файла и разбиение на элементы
         foreach (var line in File.ReadLines(filePath))
         {
             var parts = line.Split(":", StringSplitOptions.RemoveEmptyEntries);
@@ -29,7 +31,7 @@ public List<string> GetPlatformsForLocation(string location)
 {
     var matchingPlatforms = new HashSet<string>();
 
-    // Проверяем все возможные уровни вложенности (от самого специфичного к глобальному)
+    // Проверяем все возможные уровни вложенности
     while (!string.IsNullOrEmpty(location))
     {
         foreach (var (platform, locations) in _platforms)
@@ -39,8 +41,7 @@ public List<string> GetPlatformsForLocation(string location)
                 matchingPlatforms.Add(platform);
             }
         }
-
-        // Укорачиваем локацию до более общего уровня
+        // Переход на уровень выше если он есть
         int lastSlashIndex = location.LastIndexOf('/');
         location = lastSlashIndex > 0 ? location.Substring(0, lastSlashIndex) : "";
     }
