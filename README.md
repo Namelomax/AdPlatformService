@@ -59,7 +59,7 @@ curl -X GET "http://localhost:5285/api/ad-platforms/search?location="
 Ответ:  
 Неправильный формат локации.
 
-## Запуск сервиса  
+## Запуск Unit теста 
 1. Запустите тест командой:  
   
    dotnet test, предворительно перейдя в директорию теста(AdPlatformService.Tests)
