@@ -10,7 +10,7 @@
 ### 1. Локальный запуск (localhost)  
 1. Запустите сервис командой:  
   
-   dotnet run
+   dotnet run, предворительно перейдя в директорию проекта(AdPlatformService)
    
 2. По умолчанию сервис будет доступен по адресу:
   
@@ -58,3 +58,8 @@ curl -X GET "http://localhost:5285/api/ad-platforms/search?location=/unknown"
 curl -X GET "http://localhost:5285/api/ad-platforms/search?location="
 Ответ:  
 Неправильный формат локации.
+
+## Запуск сервиса  
+1. Запустите тест командой:  
+  
+   dotnet test, предворительно перейдя в директорию теста(AdPlatformService.Tests)
