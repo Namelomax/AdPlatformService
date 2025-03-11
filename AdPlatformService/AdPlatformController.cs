@@ -25,11 +25,22 @@ public class AdPlatformController : ControllerBase
         }
     }
 
-    [HttpGet("search")]
-    // Поиск по полученным данным и запросу
-    public IActionResult SearchPlatforms([FromQuery] string location)
+[HttpGet("search")]
+// Поиск по полученному запросу
+public IActionResult SearchPlatforms([FromQuery] string? location)
+{
+    if (string.IsNullOrWhiteSpace(location))
     {
-        var result = _service.GetPlatformsForLocation(location);
-        return Ok(result);
+        return BadRequest("Неправильный формат локации.");
     }
+
+    var platforms = _service.GetPlatformsForLocation(location);
+
+    if (platforms.Count == 0)
+    {
+        return Ok("Нет доступных рекламных площадок для данной локации.");
+    }
+
+    return Ok(platforms);
+}
 }

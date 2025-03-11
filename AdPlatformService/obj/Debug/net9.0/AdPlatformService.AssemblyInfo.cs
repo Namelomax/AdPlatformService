@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdPlatformService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2b3dc60f342518c5c5e790aeee33b1a31d8f560")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+191f09f0d70b4e96825efff6aa0fdd5447fcc973")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdPlatformService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdPlatformService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
